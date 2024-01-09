@@ -16,6 +16,7 @@ pipeline {
             steps {
                 sh """
                     zip -r feature.zip ./* --exclude .git --exclude .zip
+                    sudo su -
                     cp feature.zip /tmp
                 """
                 echo "DOne"
