@@ -4,7 +4,7 @@ pipeline {
     stages{
         stage ('test') {
             steps {
-                echo "this is for test"
+                echo "Starting Unit tests"
             }
 
         }
@@ -17,7 +17,7 @@ pipeline {
 
         stage("Deploy") {
             steps {
-                echo "Ready for Deployment"
+                echo "Starting Deployment"
             }
         }
     }
