@@ -1,0 +1,35 @@
+pipeline {
+    agent any
+
+    stages{
+        stage ('test') {
+            steps {
+                echo "this is for test"
+            }
+
+        }
+
+        stage("Build") {
+            steps {
+                sh "zip -r feature.zip ./ --exclude .git"
+            }
+        }
+
+        stage("Deploy") {
+            steps {
+                echo "Ready for Deployment"
+            }
+        }
+    }
+    post {
+        always {
+            echo "Work hard...!!"
+        }
+        success {
+            echo "THoppp"
+        }
+        failure {
+            echo "Chuskoo...Bey"
+        }
+    }
+}
