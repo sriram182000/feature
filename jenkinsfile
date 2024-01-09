@@ -12,6 +12,19 @@ pipeline {
             }
 
         }
-
+        stage('Build') {
+            steps {
+                sh """
+                    zip -r feature.zip ./* --exclude .git --exclude .zip
+                    cp feature.zip /tmp
+                """
+                echo "DOne"
+            }
+        }
+    }
+    post {
+        always {
+            cleanWs()
+        }
     }
 }
