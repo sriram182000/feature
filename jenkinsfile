@@ -5,32 +5,13 @@ pipeline {
         stage ('test') {
             steps {
                 echo "Starting Unit tests"
+                sh """
+                    pwd
+                    ls -l
+                """
             }
 
         }
 
-        stage("Build") {
-            steps {
-                sh "zip -r feature1.zip ./ --exclude .git --exclude .zip"
-            }
-        }
-
-        stage("Deploy") {
-            steps {
-                echo "Starting Deployment"
-            }
-        }
-    }
-    post {
-        always {
-            deleteDir()
-            echo "Work hard...!!"
-        }
-        success {
-            echo "THoppp"
-        }
-        failure {
-            echo "Chuskoo...Bey"
-        }
     }
 }
